@@ -1,8 +1,7 @@
 import { onValue, ref } from "firebase/database";
 import { db } from "../db";
-import { Router } from "@vaadin/router";
 import { map } from "lodash";
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "https://chat-bck.onrender.com";
 
 const state = {
   data: {

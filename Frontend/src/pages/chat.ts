@@ -44,10 +44,10 @@ class ChatPage extends HTMLElement {
      }
  
      .input-button{
-        display: flex;
-        align-items: center;
+       display: flex;
+       align-items: center;
        color: white;
-       background-color: #1c7341;
+       background-color: #258a60;
        max-width: 90px;
        border: none;
        box-sizing: border-box;
@@ -61,12 +61,13 @@ class ChatPage extends HTMLElement {
 
      .page-container{
       margin: 0 auto;
-      height: 100vh;
+      height: 95vh;
       display: flex;
       flex-direction: column;
       gap: 20px;
       max-width: 716px;
       justify-content: center;
+      padding: 5px;
     }
 
     .chat-container {
@@ -85,13 +86,19 @@ class ChatPage extends HTMLElement {
     }
     
     .chat-container::-webkit-scrollbar-track {
-      background: #d8d8d8;
+      background: black;
+      border-radius: 20px;
     }
     
     .chat-container::-webkit-scrollbar-thumb {
-      background-color: #9cbbe9;
+      background-color: #258a60;
       border-radius: 20px;
-      border: 3px solid #d8d8d8;
+    }
+    .span-link{
+      font-size: 20px;
+    }
+    .span-link > a{
+      color:#9dad42;
     }
     `;
     this.shadow.appendChild(style);
@@ -117,14 +124,11 @@ class ChatPage extends HTMLElement {
       const target = e.target as any;
       let newMessage = target["new-message"].value;
 
-      if (newMessage.trim() !== "") {
-        // SE AGREGAN LOS NUEVOS MENSAJES A LA RTDB
-        state.pushNewMessage(newMessage);
-      } else {
-        alert(
-          "Lo siento, pero no puedes enviar mensajes vacíos. Vuelve a intentarlo otra vez."
-        );
+      if (newMessage.trim() === "") {
+        console.log("Message is empty");
+        return null;
       }
+      state.pushNewMessage(newMessage);
     });
   }
 
@@ -133,10 +137,11 @@ class ChatPage extends HTMLElement {
     const chatPage = document.createElement("div");
     chatPage.classList.add("page-container");
     chatPage.innerHTML = `
+     <span class="span-link"><a href="/">Salir</a></span>
      <custom-title></custom-title>
      <div class="chat"></div>
      <form class="submit-message">
-      <input class="input-element" type="text" name="new-message">
+      <input class="input-element" type="text" name="new-message" autofocus>
       <button class="input-button">Enviar</button>
      </form>
     `;
