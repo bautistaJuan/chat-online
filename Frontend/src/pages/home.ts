@@ -64,7 +64,7 @@ class Home extends HTMLElement {
 
       const name: string = e.target.nombre.value;
       const email: string = e.target.email.value;
-      if (!email && !name) return null;
+      if (!email || !name) return null;
       state.setNombre(name);
       state.setEmail(email);
       Router.go("/chat");
