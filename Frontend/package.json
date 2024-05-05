@@ -1,0 +1,27 @@
+{
+  "name": "chat-firebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0",
+    "@vaadin/router": "^1.7.5",
+    "firebase": "^10.11.1",
+    "lodash": "^4.17.21",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "uuid": "^9.0.1"
+  }
+}
